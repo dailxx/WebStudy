@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>混合布局</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+    .header {
+      width: 800px;
+      height: 50px;
+      background: #5880f9;
+      margin: 0 auto;
+      line-height: 50px;
+    }
+    .container {
+      width: 800px;
+      height: 1000px;
+      margin: 0 auto;
+    }
+    .container .left {
+      width: 200px;
+      height: 1000px;
+      background: #67b581;
+      float: left;
+    }
+    .container .right {
+      width: 600px;
+      height: 1000px;
+      background: #d0d0d0;
+      float: right;
+    }
+    .footer {
+      width: 800px;
+      height: 100px;
+      background: #ed817e;
+      margin: 0 auto;
+      line-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">这是页面的头部</div>
+  <div class="container">
+    <div class="left">这是页面的左侧</div>
+    <div class="right">这是页面的右侧</div>
+  </div>
+  <div class="footer">这是页面的底部</div>
+</body>
+</html>
