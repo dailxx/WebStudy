@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>vue基础例子</title>
   <script src="https://unpkg.com/vue" charset="utf-8"></script>
 </head>
 <body>
@@ -77,10 +77,10 @@
       data: {
         message: 'Hello Vue.js!'
       },
-        methods: {
-          reverseMessage: function () {
-            this.message = this.message.split('').reverse().join('')
-          }
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
       }
     })
     var app6 = new Vue({
