@@ -1,14 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import List from './list';
+import Detail from './detail';
+import Layout from './layout';
+import Animation from './animation';
+import MyButton from './MyButton';
+import Gesture from './gesture';
 
-export default class App extends React.Component {
+class Home extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerBackTitle: null, // 返回按钮的名字
+    headerTintColor: 'orange',
+    headerTitleStyle: {fontSize: 30, backgroundColor: 'red'}
+  };
+
+  onPressButton(e) {
+    this.props.navigation.navigate('List');
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Text>成功了</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={this.onPressButton.bind(this)}
+          activeOpacity={0.7}>
+          <Text style={styles.title}>跳转到列表</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -17,8 +37,37 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center'
   },
+  button: {
+    width: 100,
+    height: 45,
+    borderRadius: 5,
+    backgroundColor: 'rgb(70, 168, 214)',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  title: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
 });
+
+const SimpleApp = StackNavigator({
+  Home: {screen: Home},
+  List: {screen: List},
+  Detail: {screen: Detail},
+  Layout: {screen: Layout},
+  Animation: {screen: Animation},
+  Gesture: {screen: Gesture}
+}, {
+  // initialRouteName: 'Home',
+  // initialRouteName: 'Layout',
+  // initialRouteName: 'Animation',
+  initialRouteName: 'Gesture',
+  headerMode: 'screen',
+});
+
+export default SimpleApp;
